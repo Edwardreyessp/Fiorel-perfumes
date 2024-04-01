@@ -1,11 +1,11 @@
 'use client';
 import { useForm } from 'react-hook-form';
 import * as zod from 'zod';
-import { LoginSchema } from '../../schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Alert, Button, TextField } from '@mui/material';
 import { Login } from '@/actions/Login';
 import { useState, useTransition } from 'react';
+import { LoginSchema } from '@/schemas';
 
 interface Response {
 	success: 'error' | 'success';

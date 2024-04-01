@@ -1,6 +1,6 @@
 'use server';
 import * as zod from 'zod';
-import { LoginSchema } from '../../schemas';
+import { LoginSchema } from '../schemas';
 
 export const Login = async (values: zod.infer<typeof LoginSchema>) => {
 	console.log(values);

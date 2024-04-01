@@ -1,10 +1,10 @@
-import { RegisterForm } from '@/components/RegisterForm';
+// import { RegisterForm } from '@/components/RegisterForm';
 
 const RegistePage = () => {
 	return (
 		<main>
 			<p>RegistePage</p>
-			<RegisterForm />
+			{/* <RegisterForm /> */}
 		</main>
 	);
 };

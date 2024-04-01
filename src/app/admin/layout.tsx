@@ -1,9 +1,11 @@
+import { AuthProvider } from '@/providers/AuthProvider';
+
 const ClientLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
-		<div>
+		<AuthProvider>
 			<h1>Admin Layout</h1>
 			{children}
-		</div>
+		</AuthProvider>
 	);
 };
 export default ClientLayout;

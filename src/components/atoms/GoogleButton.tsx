@@ -1,27 +1,35 @@
 'use client';
+import { signInWithGoogle, signOutGoogle } from '@/firebase/auth';
+import { auth } from '@/firebase/main';
 import { Button } from '@mui/material';
-import { signIn, signOut, useSession } from 'next-auth/react';
+import { User } from 'firebase/auth';
+import { useEffect, useState } from 'react';
 
 export const GoogleButton = () => {
-	const { data: session } = useSession();
+	const [currentUser, setCurrentUser] = useState<User | null>(null);
 
-	if (session) {
+	useEffect(() => {
+		auth.onAuthStateChanged(user => {
+			if (user) {
+				console.log(user);
+				setCurrentUser(user);
+			} else {
+				console.log('No user is signed in.');
+				setCurrentUser(null);
+			}
+		});
+	}, []);
+
+	if (currentUser !== null) {
 		return (
-			<Button
-				variant='contained'
-				onClick={() =>
-					signOut({
-						callbackUrl: '/',
-					})
-				}
-			>
+			<Button variant='contained' onClick={() => signOutGoogle()}>
 				SignOut
 			</Button>
 		);
 	}
 
 	return (
-		<Button variant='contained' onClick={() => signIn()}>
+		<Button variant='contained' onClick={() => signInWithGoogle()}>
 			SignIn With Google
 		</Button>
 	);
