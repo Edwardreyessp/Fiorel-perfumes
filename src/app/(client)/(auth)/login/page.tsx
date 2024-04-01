@@ -1,6 +1,7 @@
 // import { LoginForm } from '@/components/LoginForm';
 
 import { GoogleButton } from '@/components/atoms/GoogleButton';
+import Link from 'next/link';
 
 const LoginPage = () => {
 	return (
@@ -8,6 +9,7 @@ const LoginPage = () => {
 			<p>LoginPage</p>
 			{/* <LoginForm /> */}
 			<GoogleButton />
+			<Link href='/admin'>Admin</Link>
 		</main>
 	);
 };
